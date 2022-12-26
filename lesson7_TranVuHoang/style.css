@@ -1,0 +1,22 @@
+body {
+  font-family: "Times New Roman", Times, serif;
+}
+label {
+  display: inline-block;
+  width: 70px;
+  margin-bottom: 5px;
+}
+.btn-login {
+  margin-left: 70px;
+}
+button {
+  margin-top: 5px;
+}
+.register label {
+  display: inline-block;
+  width: 120px;
+  margin-bottom: 5px;
+}
+.btn-register {
+  margin-left: 125px;
+}

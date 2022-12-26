@@ -1,0 +1,15 @@
+article {
+  line-height: 30px;
+  font-family: "Times New Roman", serif;
+  font-size: 16px;
+}
+
+.change1 {
+  color: white;
+  background-color: #287f0e;
+}
+
+.change2 {
+  color: white;
+  background-color: #f20001;
+}

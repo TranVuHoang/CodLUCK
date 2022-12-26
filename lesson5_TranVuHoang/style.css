@@ -1,0 +1,11 @@
+body {
+  font-family: "Times New Roman", Times, serif;
+  box-sizing: border-box;
+}
+ul li { 
+  padding: 5px;
+}
+span {
+  font-weight: bold;
+  color: #ff0000;
+}
