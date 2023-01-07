@@ -4,7 +4,6 @@
             <th rowspan="2" align="center">Month/ Employee</th>
             <?php
             for ($day = 1; $day <= 31; $day++) {
-                // 1 tháng sẽ có nhiều nhất 5 ngày thứ 2/3/4/5/6/7/CN
                 switch ($day) {
                     case 1:
                     case 1 + 7:
@@ -180,6 +179,7 @@
     table {
         margin: 100px auto;
         text-align: center;
+        border-collapse: collapse;
     }
 
     th {

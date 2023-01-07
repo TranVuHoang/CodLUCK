@@ -7,11 +7,11 @@
         </tr>
         <tr>
             <td><label for="password">Password:</label></td>
-            <td><input type="text" name="password" id="password"></td>
+            <td><input type="password" name="password" id="password"></td>
         </tr>
         <tr>
             <td><label for="retype_password">Retype password:</label></td>
-            <td><input type="text" name="retype_password" id="retype_password"></td>
+            <td><input type="password" name="retype_password" id="retype_password"></td>
         </tr>
         <tr>
             <td></td>

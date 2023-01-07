@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo 'Register successfully !<br>';
         echo '<a href="lesson8.php">Login</a>';
 
-        $sql = "INSERT INTO users (`username`, `password`) VALUES ('$username','$password')";
+        $sql = "INSERT INTO `users` (`username`, `password`) VALUES ('$username','$password')";
         $sql = mysqli_query($conn, $sql);
     } else {
         echo $errors;

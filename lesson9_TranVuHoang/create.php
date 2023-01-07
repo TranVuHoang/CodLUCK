@@ -43,11 +43,11 @@
         }
 
         if (empty($retypePassword)) {
-            $errors['retype_password'] = 'Please type retype password.';
+            $errors['retype_password'] = 'Please retype password.';
         }
 
         if ($retypePassword != $password) {
-            $errors['wrong_password'] = 'Password not match !';
+            $errors['wrong_password'] = 'Password not match, please try again !';
         }
 
         if (empty($errors)) {
@@ -80,7 +80,8 @@
             <tr>
                 <td><label for="email">Email <span>*</span></label></td>
                 <td>
-                    <input type="text" name="email" id="email" value="<?php echo !empty($email) ? $email : ''; ?>"><br />
+                    <input type="text" name="email" id="email"
+                        value="<?php echo !empty($email) ? $email : ''; ?>"><br />
                     <?php
                     if (!empty($errors['email'])) {
                         echo '<span>' . $errors['email'] . '</span>';
@@ -91,7 +92,8 @@
             <tr>
                 <td><label for="phone">Phone <span>*</span></label></td>
                 <td>
-                    <input type="text" name="phone" id="phone" value="<?php echo !empty($phone) ? $phone : ''; ?>"><br />
+                    <input type="text" name="phone" id="phone"
+                        value="<?php echo !empty($phone) ? $phone : ''; ?>"><br />
                     <?php
                     if (!empty($errors['phone'])) {
                         echo '<span>' . $errors['phone'] . '</span>';
@@ -102,10 +104,11 @@
             <tr>
                 <td><label for="username">Username <span>*</span></label></td>
                 <td>
-                    <input type="text" name="username" id="username" value="<?php echo !empty($username) ? $username : ''; ?>"><br />
+                    <input type="text" name="username" id="username"
+                        value="<?php echo !empty($username) ? $username : ''; ?>"><br />
                     <?php
                     if (!empty($errors['username'])) {
-                        echo '<span>' . $errors['username'] . '</span>';
+                        echo '<center class="alert alert-danger">' . $errors['username'] . '</center>';
                     }
                     ?>
                 </td>

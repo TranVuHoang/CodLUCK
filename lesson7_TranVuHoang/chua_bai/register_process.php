@@ -4,18 +4,23 @@ session_start();
 echo '<h2>Register</h2>';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = !empty($_POST['username']) ? trim($_POST['username']) : '';
+    $password = !empty($_POST['password']) ? trim($_POST['password']) : '';
+    $retypePassword = !empty($_POST['retype_password']) ? trim($_POST['retype_password']) : '';
+
+    $registeredUsernames = [];
     $errors = [];
 
-    if (empty(trim($_POST['username']))) {
-        $errors = 'Please type username !';
+    if (empty($username)) {
+        $errors['username'] = 'Please type username !';
     } else {
-        if (empty(trim($_POST['password']))) {
-            $errors = 'Please type password !';
+        if (empty($password)) {
+            $errors['password'] = 'Please type password !';
         } else {
-            if (empty(trim($_POST['retype_password']))) {
-                $errors = 'Please retype password !';
+            if (empty($retypePassword)) {
+                $errors['retype_password'] = 'Please retype password !';
             } else {
-                if (trim($_POST['password'] != trim($_POST['retype_password']))) {
+                if ($password != $retypePassword) {
                     $errors = 'Password not match, please try again !';
                 }
             }
@@ -23,11 +28,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if (!empty($errors)) {
-        echo $errors;
+        foreach ($errors as $error) {
+            echo $error;
+        }
     } else {
-        // $_SESSION['username'] = trim($_POST['username']);
-        // $_SESSION['password'] = trim($_POST['password']);
-        echo 'Register successfully ! <br>';
-        echo '<a href="login.php">Login</a>';
+        // Kiểm tra xem tên người dùng có trùng với tên người dùng đã đăng ký hay không
+        if (in_array($username, $registeredUsernames)) {
+            echo 'Username already exists, please choose another one !';
+        } else {
+            // Thêm tên người dùng vào mảng
+            $registeredUsernames[] = $username;
+
+            // Lưu thông tin người dùng vào biến SESSION
+            $_SESSION['username'] = $username;
+            $_SESSION['password'] = $password;
+            echo 'Register successfully ! <br>';
+            echo '<a href="login.php">Login</a>';
+        }
     }
+} else {
+    header('Location: ./register.php');
 }
